@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>【物理】苏科版·八年级上 | Auroraの博客小窝</title>
+    <meta name="author" content="Aurora" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Auroraの博客小窝" type="application/atom+xml">
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>AURORAの博客小窝</span>
+        </a>
+        
+        <a href="https://maxpbs.github.io/">
+            <i class="fa-solid fa-home fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;关于</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;归档</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+        <a href="/link">
+            <i class="fa-solid fa-link fa-fw"></i>
+            <span>&ensp;链接</span>
+        </a>
+        
+        <a href="/todo">
+            <i class="fa-solid fa-list fa-fw"></i>
+            <span>&ensp;待办</span>
+        </a>
+        
+        <a href="/maxpbs.github.io/notebook">
+            <i class="fa-solid fa-book fa-fw"></i>
+            <span>&ensp;笔记</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;AURORAの博客小窝</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="https://maxpbs.github.io/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-home fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">归档</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+                <a href="/link">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-link fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">链接</div>
+                    </div>
+                </a>
+                
+                <a href="/todo">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-list fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">待办</div>
+                    </div>
+                </a>
+                
+                <a href="/maxpbs.github.io/notebook">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-book fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">笔记</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>【物理】苏科版·八年级上</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/26
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="color: #00a596">
+                    学习
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="第一章-声现象"><a href="#第一章-声现象" class="headerlink" title="第一章 | 声现象"></a>第一章 | 声现象</h1><h2 id="第一节-声音是什么？"><a href="#第一节-声音是什么？" class="headerlink" title="第一节 声音是什么？"></a>第一节 声音是什么？</h2><h3 id="1-声音怎样产生？"><a href="#1-声音怎样产生？" class="headerlink" title="1. 声音怎样产生？"></a>1. 声音怎样产生？</h3><p><strong>实验</strong>：</p>
+<ol>
+<li><p>说话时声带<u>震动</u>。</p>
+</li>
+<li><p>瀑布<u>水花四溅发出巨响</u>。</p>
+</li>
+</ol>
+<p><strong>证明</strong>： <u><strong>声音是由振动产生的。</strong></u></p>
+<blockquote>
+<p><strong>归纳法</strong>：通过分析众多的物理现象和实验数据，找出共同的特点，总结普遍的物理规律。</p>
+</blockquote>
+<h3 id="2-声源的概念"><a href="#2-声源的概念" class="headerlink" title="2. 声源的概念"></a>2. 声源的概念</h3><p><strong>概念</strong>：<u><strong>正在发声的物体叫做声源</strong></u>。</p>
+<h1 id="第二章-物态变化"><a href="#第二章-物态变化" class="headerlink" title="第二章 | 物态变化"></a>第二章 | 物态变化</h1><h2 id="第一节-物质的三态"><a href="#第一节-物质的三态" class="headerlink" title="第一节 物质的三态"></a>第一节 物质的三态</h2><h3 id="酒精灯的使用"><a href="#酒精灯的使用" class="headerlink" title="酒精灯的使用"></a>酒精灯的使用</h3><h4 id="（1）加热"><a href="#（1）加热" class="headerlink" title="（1）加热"></a>（1）加热</h4><ol>
+<li>检查灯芯：如果灯芯顶端不平或者已烧焦，须剪去少量令其平整。</li>
+<li>检查酒精：酒精不少于灯壶容积的1&#x2F;4，不多于1&#x2F;3。</li>
+<li>注意：<ol>
+<li>酒精灯加热分 <strong>内焰，外焰，焰心</strong>。</li>
+<li>外焰温度最高，故应该使用外焰加热。</li>
+</ol>
+</li>
+</ol>
+<h4 id="（2）点燃"><a href="#（2）点燃" class="headerlink" title="（2）点燃"></a>（2）点燃</h4><p>应该使用火柴点燃酒精灯，<u>不可用另一盏酒精灯点燃</u>。</p>
+<h4 id="（3）熄灭"><a href="#（3）熄灭" class="headerlink" title="（3）熄灭"></a>（3）熄灭</h4><p><u>应该使用灯帽盖灭酒精灯，不可使用嘴吹灭。</u></p>
+<h4 id="（4）处理"><a href="#（4）处理" class="headerlink" title="（4）处理"></a>（4）处理</h4><p>不要碰倒酒精灯；若洒出的酒精开始燃烧，应用湿抹布扑灭。</p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/%E4%BD%BF%E7%94%A8%E9%85%92%E7%B2%BE%E7%81%AF.png"></p>
+<h3 id="水的三态及其特征"><a href="#水的三态及其特征" class="headerlink" title="水的三态及其特征"></a>水的三态及其特征</h3><p><img src="/2024/07/26/%E7%89%A9%E7%90%86/%E6%B0%B4%E7%9A%84%E4%B8%89%E6%80%81%E7%A4%BA%E6%84%8F%E5%9B%BE.png"></p>
+<h3 id="物态变化"><a href="#物态变化" class="headerlink" title="物态变化"></a>物态变化</h3><h3 id="温度影响三态的变化"><a href="#温度影响三态的变化" class="headerlink" title="温度影响三态的变化"></a>温度影响三态的变化</h3><h3 id="温度计"><a href="#温度计" class="headerlink" title="温度计"></a>温度计</h3><h4 id="温度计的使用"><a href="#温度计的使用" class="headerlink" title="温度计的使用"></a>温度计的使用</h4><h4 id="体温计"><a href="#体温计" class="headerlink" title="体温计"></a>体温计</h4><h2 id="第二节-汽化和液化"><a href="#第二节-汽化和液化" class="headerlink" title="第二节 汽化和液化"></a>第二节 汽化和液化</h2><h2 id="第三节-熔化和凝固"><a href="#第三节-熔化和凝固" class="headerlink" title="第三节 熔化和凝固"></a>第三节 熔化和凝固</h2><h3 id="熔化和凝固"><a href="#熔化和凝固" class="headerlink" title="熔化和凝固"></a>熔化和凝固</h3><p><u><strong>物质能从固态变成液态(熔化)，从液态变为固态(凝固)</strong></u>。</p>
+<ol>
+<li><p>特点：</p>
+<p>固体熔化时温度变化规律：</p>
+<p>碎冰：达到0℃时开始熔化，熔化过程中虽然继续吸热，但是碎冰温度保持不变。</p>
+<p>烛蜡：不断吸热，温度不断上升，此过程中烛蜡由硬变软再变稀，最后熔化为液体。</p>
+</li>
+</ol>
+<h3 id="晶体和非晶体"><a href="#晶体和非晶体" class="headerlink" title="晶体和非晶体"></a>晶体和非晶体</h3><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>举例</th>
+<th>熔化过程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>晶体</td>
+<td>冰，各种金属，冰晶等</td>
+<td>不断吸热，温度保持不变。</td>
+</tr>
+<tr>
+<td>非晶体</td>
+<td>玻璃、塑料、蜡烛等</td>
+<td>不断吸热，温度不断上升。</td>
+</tr>
+</tbody></table>
+<p>具有固定熔化温度的固体  &#x3D;&gt; 晶体</p>
+<p>没有固定熔化温度的固体 &#x3D;&gt; 非晶体</p>
+<h4 id="（1）熔点和凝固点"><a href="#（1）熔点和凝固点" class="headerlink" title="（1）熔点和凝固点"></a>（1）熔点和凝固点</h4><ul>
+<li>晶体开始熔化时的温度叫做熔点。晶体不同，熔点也不同。非晶体无熔点。</li>
+<li>晶体熔化后再凝固时也有一定的凝固温度，叫做凝固点。一般与熔点相同，非晶体无凝固点。</li>
+</ul>
+<h4 id="（2）晶体熔化和凝固的条件"><a href="#（2）晶体熔化和凝固的条件" class="headerlink" title="（2）晶体熔化和凝固的条件"></a>（2）晶体熔化和凝固的条件</h4><ul>
+<li>熔化：温度达到熔点且可以继续吸热。</li>
+<li>凝固：温度达到凝固点且可以继续放热。</li>
+</ul>
+<h2 id="第四节-升华和凝华"><a href="#第四节-升华和凝华" class="headerlink" title="第四节 升华和凝华"></a>第四节 升华和凝华</h2><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h1 id="第三章-光现象"><a href="#第三章-光现象" class="headerlink" title="第三章 | 光现象"></a>第三章 | 光现象</h1><img src="/2024/07/26/%E7%89%A9%E7%90%86/光现象.png">
+
+<h2 id="第一节-光的色彩-颜色"><a href="#第一节-光的色彩-颜色" class="headerlink" title="第一节 光的色彩 颜色"></a>第一节 光的色彩 颜色</h2><h3 id="光源"><a href="#光源" class="headerlink" title="光源"></a>光源</h3><p><strong>定义</strong>：<u><strong>本身发光</strong>的物体叫作光源。</u></p>
+<ul>
+<li>光源的分类<ul>
+<li><u>人造</u>光源 e.g. 手电筒，电灯……</li>
+<li><u>自然</u>光源 e.g. 太阳……</li>
+<li>❗注意：本身不发光，反射别的光源的光的物体不算是光源。</li>
+</ul>
+</li>
+</ul>
+<h3 id="光的色散"><a href="#光的色散" class="headerlink" title="光的色散"></a>光的色散</h3><p><strong>实验</strong>：</p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/%E5%85%89%E7%9A%84%E8%89%B2%E6%95%A3.jpg"></p>
+<ul>
+<li><p>太阳光不是单色的，而是由各种颜色的光混合而成的复色光。</p>
+</li>
+<li><p>不同光经过三棱镜偏折程度不同，红光偏折程度最小，紫光最大。</p>
+<p>偏折程度由小至大：红&#x3D;&gt;橙&#x3D;&gt;黄&#x3D;&gt;绿&#x3D;&gt;蓝&#x3D;&gt;靛&#x3D;&gt;紫</p>
+</li>
+</ul>
+<p><strong>证明</strong>：光的色散是指一束太阳光经过三棱镜后，分解成红、橙、黄、绿、蓝、靛、紫等色光的现象。</p>
+<p><strong>注意</strong>：“光的色散”实验中所分解出的光排列是有顺序的。</p>
+<table>
+<thead>
+<tr>
+<th>三棱镜放置方向</th>
+<th>光屏上光带从上至下颜色排列顺序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正放（底面朝下）</td>
+<td>红&#x3D;&gt;橙&#x3D;&gt;黄&#x3D;&gt;绿&#x3D;&gt;蓝&#x3D;&gt;靛&#x3D;&gt;紫</td>
+</tr>
+<tr>
+<td>倒放（地面朝上）</td>
+<td>紫&#x3D;&gt;靛&#x3D;&gt;蓝&#x3D;&gt;绿&#x3D;&gt;黄&#x3D;&gt;橙&#x3D;&gt;红</td>
+</tr>
+</tbody></table>
+<h3 id="色光的混合"><a href="#色光的混合" class="headerlink" title="色光的混合"></a>色光的混合</h3><p><u><strong>将红，绿，蓝（光的三原色）三种光按不同的比例混合可以产生任意颜色的光。</strong></u></p>
+<h3 id="物体的颜色"><a href="#物体的颜色" class="headerlink" title="物体的颜色"></a>物体的颜色</h3><h4 id="我们是怎样看到物体的？"><a href="#我们是怎样看到物体的？" class="headerlink" title="我们是怎样看到物体的？"></a>我们是怎样看到物体的？</h4><p>通常看到从物体进入我们眼睛的光有三类：</p>
+<ul>
+<li>反射光</li>
+<li>透射光</li>
+<li>发射光</li>
+</ul>
+<p>我们所看到的诸如太阳光，白炽灯光等都由七色光混合而成。当白光照射在物体上，一部分被物体吸收，一部分被反射。我们看到的不透明物体的颜色，都由其反射的光决定。</p>
+<h4 id="物体的颜色-1"><a href="#物体的颜色-1" class="headerlink" title="物体的颜色"></a>物体的颜色</h4><ul>
+<li><strong>透明物体</strong>：<em><strong>透过与它颜色相同的色光，吸收其他色光</strong></em>，物体的颜色就是眼睛看到透过的色光的颜色。<u>透明物体的颜色由它透过的色光决定</u>。</li>
+<li><strong>不透明物体</strong>：<em><strong>反射与它颜色相同的色光，吸收其余的色光</strong></em>，物体的颜色就是眼睛看到反射的色光的颜色。<u>不透明物体的颜色由它反射的色光决定</u>。</li>
+<li><strong>白色物体</strong>：<em><strong>反射所有的色光</strong></em>。<u>什么颜色的色光照在白色物体上，白色物体就呈现什么颜色</u>。</li>
+<li><strong>黑色物体</strong>：<em><strong>吸收所有的色光</strong></em>。<u>无论什么颜色的色光照在黑色物体上，物体都呈现黑色</u>。</li>
+</ul>
+<h3 id="光具有能量"><a href="#光具有能量" class="headerlink" title="光具有能量"></a>光具有能量</h3><p><strong><u>光具有能量，可以通过某种形式转化为别的能量。</u></strong></p>
+<table>
+<thead>
+<tr>
+<th>事例</th>
+<th>能量转化关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>太阳能发电站</td>
+<td>光能转化为电能</td>
+</tr>
+<tr>
+<td>植物的光合作用</td>
+<td>光能转化为化学能</td>
+</tr>
+<tr>
+<td>太阳能热水器</td>
+<td>光能转化为热能</td>
+</tr>
+<tr>
+<td>太阳能汽车</td>
+<td>光能转化为电能，电能再转化为机械能</td>
+</tr>
+</tbody></table>
+<h2 id="第二节-人眼看不见的光"><a href="#第二节-人眼看不见的光" class="headerlink" title="第二节 人眼看不见的光"></a>第二节 人眼看不见的光</h2><h3 id="红外线"><a href="#红外线" class="headerlink" title="红外线"></a>红外线</h3><p>在可见光光谱的<strong>红光之外</strong>有一种<strong>不可见</strong>的光叫做<u>红外线</u>。红外线由英国科学家赫歇尔在1800年发现。</p>
+<p>其最显著的特点是*<u>红外线能够使被照射的物体温度升高</u>*，这被称作红外线的热效应。任何物体都可以发出红外线，物体温度越高，红外线越强。</p>
+<h3 id="紫外线"><a href="#紫外线" class="headerlink" title="紫外线"></a>紫外线</h3><p>在可见光光谱的<strong>紫光之外</strong>存在着一种<strong>不可见</strong>的光叫做紫外线。有德国物理学家里特在1801年发现。</p>
+<p><u>紫外线最显著的特征是能够使荧光物质发光</u>。</p>
+<h2 id="第三节-光的直线传播"><a href="#第三节-光的直线传播" class="headerlink" title="第三节 光的直线传播"></a>第三节 光的直线传播</h2><h3 id="光在均匀介质中的传播"><a href="#光在均匀介质中的传播" class="headerlink" title="光在均匀介质中的传播"></a>光在均匀介质中的传播</h3><p>**<u>光是沿直线传播的</u>**。</p>
+<h4 id="光沿直线传播的条件"><a href="#光沿直线传播的条件" class="headerlink" title="光沿直线传播的条件"></a>光沿直线传播的条件</h4><p><u>光在<strong>均匀介质</strong>中沿直线传播</u>。</p>
+<ul>
+<li><strong>介质</strong>：像水、玻璃、空气一样能够让光通过的透明物。</li>
+<li><strong>光线</strong>：如图，直线表示光的传播路径，箭头表示光的传播方向。这样的直线叫做光线。</li>
+</ul>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/%E5%85%89%E7%BA%BF.png"></p>
+<h4 id="光的直线传播现象"><a href="#光的直线传播现象" class="headerlink" title="光的直线传播现象"></a>光的直线传播现象</h4><p>影子、日食、月食、小孔成像（详见下方示意图）。</p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/%E6%97%A5%E9%A3%9F.png" alt="日食&amp;月食"></p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/%E5%B0%8F%E5%AD%94%E6%88%90%E5%83%8F.png" alt="小孔成像"></p>
+<h3 id="光速"><a href="#光速" class="headerlink" title="光速"></a>光速</h3><p>光在不同介质中传播速度不同，在真空中传播速度最大，在物理学中用字母c表示。</p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/image-20240801113226103.png" alt="image-20240801113226103"></p>
+<p>光在空气中的速度非常接近c。光在水中的速度表示为：</p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/image-20240801113235012.png" alt="image-20240801113235012"></p>
+<p>光在玻璃中的速度表示为：</p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/image-20240801113250537.png" alt="image-20240801113250537"></p>
+<h4 id="激光测距的原理"><a href="#激光测距的原理" class="headerlink" title="激光测距的原理"></a>激光测距的原理</h4><p>激光测距仪工作时，向目标发射脉冲激光束，并接收目标反射回来的激光，从而测出激光往返所用的时间t，带入以下公式：</p>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/image-20240802095314919.png" alt="image-20240802095314919"></p>
+<p>计算出两者之间的距离。</p>
+<h4 id="声、光传播辨析"><a href="#声、光传播辨析" class="headerlink" title="声、光传播辨析"></a>声、光传播辨析</h4><ul>
+<li>光的传播：</li>
+</ul>
+<p>​	透明物质、真空中光速最大。</p>
+<ul>
+<li>声的传播：</li>
+</ul>
+<p>​	固体、液体、气体（真空不能传声）</p>
+<h2 id="第四节-平面镜"><a href="#第四节-平面镜" class="headerlink" title="第四节 平面镜"></a>第四节 平面镜</h2><h3 id="平面镜成像"><a href="#平面镜成像" class="headerlink" title="平面镜成像"></a>平面镜成像</h3><p><strong>平面镜</strong>：生活中常用的镜子表面是平的，叫做平面镜。</p>
+<p>**<u>平面镜成的像是虚像；像与物的大小相等，且它们到平面镜的距离也相等；像与物关于平面镜对称</u>**。</p>
+<blockquote>
+<p>⚠️注意：</p>
+<ul>
+<li>像和物体到玻璃板的距离的差值就是玻璃板的厚度</li>
+<li>若实验室观察到物体有两个不重合的像，说明选择的玻璃板太厚，两个反射面所成的像距离较大。</li>
+</ul>
+<hr>
+<p><strong>等效代替法</strong>：</p>
+<p>在保证某种效果（特性和关系）相同的前提下，将陌生的、复杂的物理问题和物理过程转化为等效的、简单的、易于研究的物理问题和物理过程来研究和处理的方法。</p>
+</blockquote>
+<h3 id="平面镜成像作图"><a href="#平面镜成像作图" class="headerlink" title="平面镜成像作图"></a>平面镜成像作图</h3><h4 id="对称法"><a href="#对称法" class="headerlink" title="对称法"></a>对称法</h4><p>由平面镜成像特点知，物体在平面镜中的像与物体关于平面对称。</p>
+<p>在下图中，MN表示平面镜，AB表示镜前的物体。要做出AB在平面镜中的像，可以作出AB两端点A、B关于镜面的对称点A’、B’，以虚线连接。</p>
+<p>具体步骤：</p>
+<ol>
+<li>做AM、BN垂直于MN，垂足为M、N。</li>
+<li>测量AM、BN的长度。</li>
+<li>延长AM、MN至点A’、B’且AM&#x3D;A’M、BN&#x3D;B’N。</li>
+<li>用虚线连接A’B’。</li>
+</ol>
+<p><img src="/2024/07/26/%E7%89%A9%E7%90%86/%E5%AF%B9%E7%A7%B0%E6%B3%95.jpg"></p>
+<h3 id="平面镜成像的应用"><a href="#平面镜成像的应用" class="headerlink" title="平面镜成像的应用"></a>平面镜成像的应用</h3><table>
+<thead>
+<tr>
+<th>应用</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>成像</td>
+<td>古代妇女对着铜镜梳妆。</td>
+</tr>
+<tr>
+<td>扩大视觉空间</td>
+<td>在狭小空间进行视力检查，看视力表在平面镜中的像。</td>
+</tr>
+<tr>
+<td>改变光的传播路径</td>
+<td>潜望镜。</td>
+</tr>
+</tbody></table>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p><a target="_blank" rel="noopener" href="https://basic.smartedu.cn/tchMaterial/detail?contentType=assets_document&contentId=6a9ba25f-3f1d-47e0-b578-c4bb7f3caab6&catalogType=tchMaterial&subCatalog=tchMaterial">在线教材-中国中小学智慧教育平台</a></p>
+<h1 id="在本文中使用过的缩写"><a href="#在本文中使用过的缩写" class="headerlink" title="在本文中使用过的缩写"></a>在本文中使用过的缩写</h1><table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SPE</td>
+<td>特殊的情况</td>
+</tr>
+<tr>
+<td>USU</td>
+<td>一般地，通常的情况</td>
+</tr>
+<tr>
+<td>e.g.</td>
+<td>示例</td>
+</tr>
+</tbody></table>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Auroraの博客小窝
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Aurora
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

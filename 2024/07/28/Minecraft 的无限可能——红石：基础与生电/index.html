@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>Minecraft的无限可能——红石：基础与生电 | Auroraの博客小窝</title>
+    <meta name="author" content="Aurora" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="Auroraの博客小窝" type="application/atom+xml">
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>AURORAの博客小窝</span>
+        </a>
+        
+        <a href="https://maxpbs.github.io/">
+            <i class="fa-solid fa-home fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;关于</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;归档</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+        <a href="/link">
+            <i class="fa-solid fa-link fa-fw"></i>
+            <span>&ensp;链接</span>
+        </a>
+        
+        <a href="/todo">
+            <i class="fa-solid fa-list fa-fw"></i>
+            <span>&ensp;待办</span>
+        </a>
+        
+        <a href="/maxpbs.github.io/notebook">
+            <i class="fa-solid fa-book fa-fw"></i>
+            <span>&ensp;笔记</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;AURORAの博客小窝</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="https://maxpbs.github.io/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-home fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">归档</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+                <a href="/link">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-link fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">链接</div>
+                    </div>
+                </a>
+                
+                <a href="/todo">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-list fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">待办</div>
+                    </div>
+                </a>
+                
+                <a href="/maxpbs.github.io/notebook">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-book fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">笔记</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>Minecraft的无限可能——红石：基础与生电</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/28
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%B8%B8%E6%88%8F-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" style="color: #ffa2c4">
+                    游戏, 我的世界
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>​                                                                                                              <em>&lt;对生存、生电技术的教学与运用&gt;</em></p>
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><blockquote>
+<p>“让我跟你谈谈我的第一个红石作品吧。 在开始玩后不久，我就已经发展出了一座巨大的小麦田。每当田里一半左右的小麦成 熟后，我就去收割小麦，再重新种植。这很快就成了一件苦差事。所以我就使出了我 的红石工程技术来消灭这个问题，看招！”</p>
+<p>​                                                                                                                                                                                    ——邓肯 · 吉尔</p>
+</blockquote>
+<p>​	红石是一个无比有趣的系统。由红石组成的庞大的生电机器，造福着无数“懒人”玩家。譬如能无限获取铁锭的刷铁机(<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sm4y1F744?share_source=copy_web">8核心3051铁锭&#x2F;h效率刷铁机和双体AI跳跃刷铁机</a> )，能无限获取绿宝石的袭击农场(<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TY4y1M7zt?share_source=copy_web">堆叠袭击农场V6 979,000物品&#x2F;h</a>)等等。数电&#x2F;模电架构而成的机器，譬如能在游戏中玩游戏的计算机(<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sW411c7nF?share_source=copy_web">64位红石计算机</a>)(<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1U34y1X7cZ?share_source=copy_web">1Hz红石计算机</a>)、人工智能(<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yv4y1u7ZX?share_source=copy_web">神经网络手写数字输入识别</a>)等等。我的世界玩家利用红石，创造了数不胜数的奇迹。</p>
+<p>​        还等什么？欢迎来到红石的世界！</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><p>​        红石是一个复杂的系统，我们需要花费许多时间和精力去学习。许多5年，7年，甚至10年的老玩家也不一定精通红石。这里，编者给各位一些建议。</p>
+<p>​        看再多教程，也不及看完一遍后在游戏内实践。新建一个存档，按着教程一步一步实践！向老玩家讨取经验，与他们一起设计机器电路，你可能会发现你平常没有注意过的细节。在网上下载机器存档，不能仅止步于借用，拆解它，理解他，尝试自己创新、变革。加入红石交流社区，看看老玩家在研究些什么。看看Bilibili上的机器，尝试回答作者、观众使用中的问题。遇到问题，尝试在<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/">Minecraft Wiki</a>上查找资料。遇到了Wiki百科的错误，尝试改正它！希望你能学好红石！</p>
+<p>国内知名红石交流论坛：</p>
+<p><a target="_blank" rel="noopener" href="https://kaihei.co/PmJVfu">TIS 开黑啦服务器</a></p>
+<p><a target="_blank" rel="noopener" href="http://discord.gg/G52vRRb">TIS Discord群组</a></p>
+<p><a target="_blank" rel="noopener" href="https://kook.top/vJwsf0">红石生存技术档案馆</a></p>
+<h2 id="我的世界版本区分"><a href="#我的世界版本区分" class="headerlink" title="我的世界版本区分"></a>我的世界版本区分</h2><p>｜我的世界</p>
+<p>​		｜BE（Bedrock Edition） 基岩版     <em>C++语言编写，可以在任意设备上游玩（安卓，iOS，iPadOS，MacOS，Windows，Linux）</em></p>
+<p>​				｜官方正版                             <em>与JE捆绑销售，买断制，可以加入任何服务器；部分道具，模组，光影付费。</em></p>
+<p>​				｜网易手机端&#x2F;电脑端              <em>中国网易公司代理，中国大陆免费，部分道具，模组，光影付费，可以加入网易租凭服&#x2F;联机</em></p>
+<p>​		｜JE（Java Edition     Java版                  <em>Java语言编写，只能在PC设备上游玩</em></p>
+<p>​				｜官方正版                               与BE捆绑销售，买断制，可以加入任何服务器；所有道具，模组，光影免费</p>
+<p>​				｜网易电脑端                           <em>中国网易公司代理，中国大陆免费，部分道具，模组，光影付费，可以加入网易租凭服&#x2F;联机</em></p>
+<p>​				｜第三方离线版本（盗版）    第三方启动器（HMCL，PCL2，BakaXL）支持，可以游玩除开启正版验证服务器意外其他服务器</p>
+<p>两个版本互相独立，部分特性不相同，本教程都讲解Java版红石相关知识。</p>
+<h2 id="1-基础红石定义-获取-机制-特性"><a href="#1-基础红石定义-获取-机制-特性" class="headerlink" title="1. 基础红石定义&#x2F;获取&#x2F;机制&#x2F;特性"></a>1. 基础红石定义&#x2F;获取&#x2F;机制&#x2F;特性</h2><p>​		本章将讲解红石的基本定义，机制与特性。设计简单机器，为后面生电机器设计做准备。</p>
+<p>​       (部分图片选自 TIS 发布的视频截图以及 DQ大冲同学 的我的世界教学书)</p>
+<h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><h4 id="1-1-1狭义"><a href="#1-1-1狭义" class="headerlink" title="1.1.1狭义"></a>1.1.1狭义</h4><p>​		红石狭义上具体指 <em>红石粉</em>。</p>
+<h4 id="1-1-2广义"><a href="#1-1-2广义" class="headerlink" title="1.1.2广义"></a>1.1.2广义</h4><p>​		泛指所有 <em>红石电路</em> ，<em>红石机器</em> ，以及 <em>红石相关领域</em>。</p>
+<h4 id="1-1-3-领域划分"><a href="#1-1-3-领域划分" class="headerlink" title="1.1.3 领域划分"></a>1.1.3 领域划分</h4><p>​		红石分为多种领域，主要关系图如下：</p>
+<p>｜红石领域</p>
+<p>​	｜生电：生存电路科技  <em>泛指为了更好的获取材料以及更好生存所建造的机器</em></p>
+<p>​	｜数电：数字电路科技  <em>泛指在游戏中建造数字电路机器。红石电脑就属于此范畴。</em></p>
+<p>​	｜模电：模拟电路科技  <em>泛指与模拟电路相关的红石电路</em></p>
+<p>​		本教程以 生电 为主要教授目标，让玩家体会红石的魅力。</p>
+<h3 id="1-2-红石原料——红石粉"><a href="#1-2-红石原料——红石粉" class="headerlink" title="1.2 红石原料——红石粉"></a>1.2 红石原料——红石粉</h3><blockquote>
+<p>“红石矿石深藏于地表之下，低于16层的地方。它们通常以4-8个方块组成的矿团形式生成，当你使用铁镐或更好的镐开采时，每一块都会掉落4-5个红石粉和一些经验。当然，使用时运魔咒的镐可以得到更多红石粉。”</p>
+<p> ——邓肯·吉尔</p>
+</blockquote>
+<p>​		想要运用红石，必须先获取红石。</p>
+<p>​	<strong>红石矿石（Redstone Ore）</strong>是开采后可获得<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%BA%A2%E7%9F%B3%E7%B2%89">红石粉</a>的<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%9F%BF%E7%9F%B3">矿石</a>方块。</p>
+<p>​        <strong>深层红石矿石（Deepslate Redstone Ore）</strong>是以<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E6%B7%B1%E6%9D%BF%E5%B2%A9">深板岩</a>作为容矿岩的红石矿石变种，于深板岩间代替红石矿石生成。</p>
+<h4 id="1-2-1-生成"><a href="#1-2-1-生成" class="headerlink" title="1.2.1 生成"></a>1.2.1 生成</h4><p>​	自然生成红石矿石会以<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%9F%BF%E5%9B%A2">矿团</a>的形式生成于<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E4%B8%BB%E4%B8%96%E7%95%8C">主世界</a>高度为Y&#x3D;-64至16的石头之间，矿团大小为1-8个方块。生成方式包含两种：一种是在Y&#x3D;16以下随高度均匀分布，每区块尝试生成4次；另一种是在Y&#x3D;-32以下随深度递增，每区块尝试生成8次。因此基岩层附近红石矿石最多。生成于<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E6%B7%B1%E6%9D%BF%E5%B2%A9">深板岩</a>或<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E5%87%9D%E7%81%B0%E5%B2%A9">凝灰岩</a>间的红石矿石会被替换为深层红石矿石。</p>
+<h4 id="1-2-2-获取"><a href="#1-2-2-获取" class="headerlink" title="1.2.2 获取"></a>1.2.2 获取</h4><p>​	红石矿石和深层红石矿石的物品形式只能通过使用具有<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%B2%BE%E5%87%86%E9%87%87%E9%9B%86">精准采集</a>的工具挖掘破坏对应方块获得。</p>
+<h4 id="1-2-3-破坏"><a href="#1-2-3-破坏" class="headerlink" title="1.2.3 破坏"></a>1.2.3 破坏</h4><p>​	挖掘红石矿石的合适工具是镐。红石矿石需要铁镐或品质更好的镐来挖掘，否则挖掘时间将延长且不会掉落。</p>
+<table>
+<thead>
+<tr>
+<th align="right">方块</th>
+<th align="center">红石矿石</th>
+<th align="center">深层红石矿石</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">硬度</td>
+<td align="center">3</td>
+<td align="center">4.5</td>
+</tr>
+<tr>
+<td align="right">工具</td>
+<td align="center">镐</td>
+<td align="center">镐</td>
+</tr>
+</tbody></table>
+<p>挖掘用时[注1]：</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="center">红石矿石</th>
+<th align="center">深层红石矿石</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">徒手</td>
+<td align="center">*15</td>
+<td align="center">*22.5</td>
+</tr>
+<tr>
+<td align="right">木质</td>
+<td align="center">*7.5</td>
+<td align="center">*11.25</td>
+</tr>
+<tr>
+<td align="right">石质</td>
+<td align="center">*3.75</td>
+<td align="center">*5.65</td>
+</tr>
+<tr>
+<td align="right">铁质</td>
+<td align="center">0.75</td>
+<td align="center">1.15</td>
+</tr>
+<tr>
+<td align="right">钻石质</td>
+<td align="center">0.6</td>
+<td align="center">0.85</td>
+</tr>
+<tr>
+<td align="right">下界合金质</td>
+<td align="center">0.5</td>
+<td align="center">0.75</td>
+</tr>
+<tr>
+<td align="right">金质</td>
+<td align="center">*1.25</td>
+<td align="center">*1.9</td>
+</tr>
+</tbody></table>
+<p>[注1]： 没有使用已附魔工具时的破坏时间，单位：秒。更多信息详见<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E6%8C%96%E6%8E%98#%E6%8C%96%E6%8E%98%E9%80%9F%E5%BA%A6">挖掘#挖掘速度</a>。</p>
+<p>[注2]：时间前带 * 号的，代表无法成功采集。</p>
+<p>​	没有被具有<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%B2%BE%E5%87%86%E9%87%87%E9%9B%86">精准采集</a>的工具挖掘破坏时，红石矿石被破坏后会掉落4-5个<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%BA%A2%E7%9F%B3%E7%B2%89">红石粉</a>和1-5点<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%BB%8F%E9%AA%8C">经验</a>，挖掘工具的<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E6%97%B6%E8%BF%90">时运</a>魔咒每有1级，红石粉的掉落数量上限增加1，时运III时为4-8个。</p>
+<p>​	被具有<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E7%B2%BE%E5%87%86%E9%87%87%E9%9B%86">精准采集</a>的工具挖掘破坏时，红石矿石被破坏后会掉落自身。</p>
+<h4 id="光照"><a href="#光照" class="headerlink" title="光照"></a>光照</h4><p>​	当鼠标单击、方块更新[仅<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%88">基岩版</a>和<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E8%82%B2%E7%89%88">教育版</a>]或被大多数可移动<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E5%AE%9E%E4%BD%93">实体</a>（不包括<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E6%BD%9C%E8%A1%8C">潜行</a>中的玩家和物品弹射物）接触时，红石矿石会产生9级的亮度以及红石粒子。该效果会一直持续到红石矿石接收到<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E9%9A%8F%E6%9C%BA%E5%88%BB">随机刻</a>为止（平均为68.27秒）。该效果实际上不会产生任何的红石信号，但这个改变可被<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E6%95%99%E7%A8%8B/%E6%96%B9%E5%9D%97%E6%9B%B4%E6%96%B0%E6%84%9F%E5%BA%94%E5%99%A8">方块更新感应器</a>和<a target="_blank" rel="noopener" href="https://minecraft.fandom.com/zh/wiki/%E4%BE%A6%E6%B5%8B%E5%99%A8">侦测器</a>探测到。</p>
+<h3 id="1-2-机制"><a href="#1-2-机制" class="headerlink" title="1.2 机制"></a>1.2 机制</h3><h4 id="1-2-1-激活"><a href="#1-2-1-激活" class="headerlink" title="1.2.1 激活"></a>1.2.1 激活</h4><p>​	机械元件和红石元器件可被电源、充能方块和传输元件以特定的方式激活，引发机械元件和红石元器件的反应 （如活塞推动方块，开门， 红石火把熄灭等）。 有些机械元件只会在刚被激 活的瞬间有所反应，直到取 消激活并再激活之前都不会 再有所反应（如命令方块执行命令，投掷器与发射器发 射物品，音符盒播放一个音 符）。其他机械元件会在激 活时始终保持状态，直到取消激活（红石灯保持点亮， 门保持开启，漏斗保持锁定 状态，活塞保持伸出等）</p>
+<h4 id="1-2-2-位置"><a href="#1-2-2-位置" class="headerlink" title="1.2.2 位置"></a>1.2.2 位置</h4><p>​	一个方块占据一个正方体的空间，正方体有6 个面。也就是说与一个方块的六个面直接接触 的方块有6个，称之为“与该方块毗邻的方 块”，简称毗邻。 一个方块的毗邻和毗邻的毗邻（即与这个方块 的曼哈顿距离为两格以内的方块），通称为这 个方块的二阶毗邻。一个方块的毗邻的毗邻共 有19个方块（包括它本身），二阶毗邻共有25 个方块（包括它本身）。 四周一般指的是与该方块东西南北四个面相接 触的4个方块。 红石线、红石火把等方块需要附着在其他方块 上，一旦所附着的方块被破坏，它本身也会掉 落。它们所附着的方块简称为它们的附着。 一些电源和传输元件有它的指向。中继器、比较器的指向就是输出端所朝向的方块，红石火把的指向是正上方的那一个方块，红石粉的指 向通常与它的纹理的朝向相同，但也有特殊情况。</p>
+<p> (出租车几何或曼哈顿距离（Manhattan  Distance）是由十九世纪的赫尔曼· 闵可夫斯基所创词汇 ，是种使用在几何度量空间的几何学用      语，用以标明 两个点在标准坐标系上的绝对轴距总和。)</p>
+<h4 id="1-2-3-条件-触发-机制"><a href="#1-2-3-条件-触发-机制" class="headerlink" title="1.2.3 条件&#x2F;触发&#x2F;机制"></a>1.2.3 条件&#x2F;触发&#x2F;机制</h4><h4 id="1-2-4-方块更新"><a href="#1-2-4-方块更新" class="headerlink" title="1.2.4 方块更新"></a>1.2.4 方块更新</h4><h4 id="1-2-5-卡顿"><a href="#1-2-5-卡顿" class="headerlink" title="1.2.5 卡顿"></a>1.2.5 卡顿</h4><h4 id="1-2-6-时间单位"><a href="#1-2-6-时间单位" class="headerlink" title="1.2.6 时间单位"></a>1.2.6 时间单位</h4><p>​	Minecraft中，基本时间计量单位有游戏刻(gt)、红石刻(rt)、随机刻。</p>
+<ul>
+<li><p>游戏刻(gametick，gt)：一般来讲，在不掉刻游戏无卡顿(TPS&#x2F;MSTP&#x3D;20的情况下)，现实世界1秒等于20游戏刻。</p>
+</li>
+<li><p>红石刻(redstonetick，rt)：红石刻是红石元件相应的最小单位，现实世界1秒等于10红石刻。</p>
+</li>
+<li><p>随机刻：随机刻影响了游戏中作物及植物生长。</p>
+</li>
+</ul>
+<h4 id="1-2-7-微时序"><a href="#1-2-7-微时序" class="headerlink" title="1.2.7 微时序"></a>1.2.7 微时序</h4><p>​	微时序是指1游戏刻之内，游戏所进行的运算的内容、过程。我的世界代码运行层面的最小周期。</p>
+<p>  (众多微时序中最为重要的8个微时序)</p>
+<table>
+<thead>
+<tr>
+<th>顺序</th>
+<th>名称</th>
+<th align="left">概述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>世界更新（WTU）</td>
+<td align="left">游戏进程&#x2F;世界时间前进一刻，秒针滑动一下。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>延迟事件（NTE）</td>
+<td align="left">前面游戏刻已经决定将要处理的事件，以及处理红石元件的延迟。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>随机刻和天气（RTC）</td>
+<td align="left">世界可能开始下雨，被随机刻进程选中的作物进入下一个生长阶段。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>村庄运算（V）</td>
+<td align="left">运行村庄相关的运算，包括猫咪是否生成。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>方块事件（BE）</td>
+<td align="left">游戏记录被激活的活塞需要将前面的方块推到特定的位置，按照特定的顺序，在这些位置填上B36方块。(B36方块：方块标签没有扁平化之前的编号)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>实体更新（EU）</td>
+<td align="left">游戏判断实体相关的事件。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>方块实体（TE）</td>
+<td align="left">Minecraft在这个时候开始把预定位置的b36，按照某个特定顺序，变回方块原本的样子。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>玩家操作（NU）</td>
+<td align="left">游戏处理玩家做出的各种操作。</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-红石信号、充能的等级及程度"><a href="#1-3-红石信号、充能的等级及程度" class="headerlink" title="1.3 红石信号、充能的等级及程度"></a>1.3 红石信号、充能的等级及程度</h3><p>​	红石信号有等级之分，会衰减，增强；充能也有程度，有强，有弱。这些机制会在后续的机器电路设计中变得十分重要。</p>
+<h4 id="1-3-1-红石信号"><a href="#1-3-1-红石信号" class="headerlink" title="1.3.1 红石信号"></a>1.3.1 红石信号</h4><p>​	红石信号强度&#x2F;等级最低为0，最高为15。红石粉&#x2F;动力铁轨等元件每前进一格，强度衰减1级。也就是说，不增加中继器的接通了电源的红石粉最远可以传输15格，第16格便不再具有能量。我们可以调整容器内储物的数量，连接红石比较器或使用测重压力板及阳光探测器输出精准的信号等级。</p>
+<h4 id="1-3-2-充能等级"><a href="#1-3-2-充能等级" class="headerlink" title="1.3.2 充能等级"></a>1.3.2 充能等级</h4><pre><code>     红石信号的充能程度分为 强充能与弱充能两种.
+</code></pre>
+<ul>
+<li><p>强充能的方块可以激活毗邻的机械元件和红石元器件。实体方块可以被电源及中继器、比较器强充能。被强充能的方块所表现性质和红石块大体相同，但是红石块不是实体方块，且可以改变红石线的形状和指向、向红石比较器边侧输入信号[仅Java版]， 而强充能方块不能。</p>
+</li>
+<li><p>当实体方块仅被红石线充能，我们称这个方块被弱充能。弱充能与强充能的区别在 于，弱充能方块无法激活毗邻的红石线。</p>
+<p>充能方块无法再去充能其他方块，只有电源和传输元件才可以去充能一个方块。</p>
+</li>
+</ul>
+<h3 id="1-4-红石元件的分类"><a href="#1-4-红石元件的分类" class="headerlink" title="1.4 红石元件的分类"></a>1.4 红石元件的分类</h3><p>​		 红石元件是在红石电路里具有一定使用目的的方块，大致分为三个大类。</p>
+<ul>
+<li>电源：为整个红石电路部分或部分红石电路部分提供红石信号。如：红石火把、按钮、拉杆、红石块、压力板等。</li>
+<li>传输元件：将红石信号或增加或保持或衰减地从一部分传输到另一部分。如：红石粉、红石中继器、红石比较器等。</li>
+<li>机械元件：接受信号并作出反应（例如移动、发光等）。如：活塞、红石灯、发射器等。</li>
+</ul>
+<h4 id="1-4-1-电源"><a href="#1-4-1-电源" class="headerlink" title="1.4.1 电源"></a>1.4.1 电源</h4><p>​		电源起到了为整个红石电路部分或部分红石电路部分提供红石信号的作用。</p>
+<h5 id="红石火把"><a href="#红石火把" class="headerlink" title="红石火把"></a>红石火把</h5><p>​		红石火把是稳定信号源，输出信号强度15。可直接产生强充能信号源，但不能对红石火把的附着及其附着的毗邻产生强充能。产生固有的延迟2gt。</p>
+<ul>
+<li>充能状态：红石火把顶部亮起，产生信号，为默认普通方块。</li>
+<li>熄灭状态：当红石火把的附着被强充能，那么红石火把将会熄灭，不产生信号。</li>
+</ul>
+<p>​                                                                          (红石火把的两种状态，反相)</p>
+<h5 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h5><p>​		按钮附着在完整方块上，如果它的附着破坏，它会以掉落物的形式掉落。</p>
+<p>​                                                                                  (不同类别的按钮)</p>
+<p>​         不同类别的按钮信号持续时间不同。</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>持续时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>石质</td>
+<td>10rt&#x3D;1s</td>
+</tr>
+<tr>
+<td>木质</td>
+<td>15rt&#x3D;1.5s</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>石质按钮不可以被射在其表面的箭触发，而木质按钮可以。</li>
+</ul>
+<h5 id="拉杆"><a href="#拉杆" class="headerlink" title="拉杆"></a>拉杆</h5><p>​         拉杆默认放置后不输出信号，只要玩家右键拉下拉杆，拉杆会激活元件，产生15级信号。拉杆可以一直激活元件，直到玩家再次右键它，拉下拉杆。</p>
+<h5 id="红石块"><a href="#红石块" class="headerlink" title="红石块"></a>红石块</h5><h5 id="压力踏板"><a href="#压力踏板" class="headerlink" title="压力踏板"></a>压力踏板</h5><p>​         压力踏板分为这几类：</p>
+<ol>
+<li><p>普通压力踏板      <em>固定信号等级15</em></p>
+<ul>
+<li><p>石制压力踏板：以各种石头制成，可以被除掉落物以外任何实体激活。</p>
+</li>
+<li><p>木质压力踏板：以各种木头制成，可以被任何实体激活。</p>
+</li>
+</ul>
+</li>
+<li><p>测重压力踏板     <em>根据掉落物数量给定对应信号等级</em></p>
+<ul>
+<li>轻型测重压力踏板：</li>
+<li>重型测重压力踏板：</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-5-2-传输元件"><a href="#1-5-2-传输元件" class="headerlink" title="1.5.2 传输元件"></a>1.5.2 传输元件</h4><h4 id="1-5-3-机械元件"><a href="#1-5-3-机械元件" class="headerlink" title="1.5.3 机械元件"></a>1.5.3 机械元件</h4><h3 id="1-6-基础机器设计"><a href="#1-6-基础机器设计" class="headerlink" title="1.6 基础机器设计"></a>1.6 基础机器设计</h3><h2 id="生电技术"><a href="#生电技术" class="headerlink" title="生电技术"></a>生电技术</h2><h3 id="1-7-基础生电"><a href="#1-7-基础生电" class="headerlink" title="1.7 基础生电"></a>1.7 基础生电</h3><h4 id="1-7-1-村民的利用"><a href="#1-7-1-村民的利用" class="headerlink" title="1.7.1 村民的利用"></a>1.7.1 村民的利用</h4><h5 id="村民介绍"><a href="#村民介绍" class="headerlink" title="村民介绍"></a>村民介绍</h5><blockquote>
+<p>“除玩家自己的创造，村庄是Minecraft中最忙忙碌碌、生机勃勃的地方了。貌似挺友善的村名们居住在其中，投身于不同的职业：农民、渔夫、制箭师、屠夫、牧师、盔甲商，还有许多许多。其中还包括我最喜欢的：傻子。“</p>
+<p>​                                                                     							——Marsh Daives  </p>
+</blockquote>
+<p>​        村民分为几种职业，各自绑定他们的工作方块。农民绑定堆肥桶，制箭师绑定制箭台……可如此之多职业，只有农民渔夫可以提供生产资料，可真正能生产食物的只有农名一种。村民的利用是所有生电实践的开始，在这里，玩家可以初次体验到生电的魅力。</p>
+<blockquote>
+<p>小知识：</p>
+<p>在1.14掠夺更新后，每当玩家保护村庄，击败掠夺者时，玩家可以敲钟来给予敌人发光效果，村民同样也会敲钟。</p>
+</blockquote>
+<h5 id="村民的大规模繁殖-——村民繁殖机"><a href="#村民的大规模繁殖-——村民繁殖机" class="headerlink" title="村民的大规模繁殖         ——村民繁殖机"></a>村民的大规模繁殖         ——村民繁殖机</h5><p>区别于别的被动生物，你不能仅仅用食物来使它们繁殖。必须有如下条件：</p>
+<table>
+<thead>
+<tr>
+<th>条件名称</th>
+<th>概述</th>
+<th align="center">繁殖所需条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>食物（雪、马铃薯、面包、甜菜、胡萝卜）</td>
+<td>食物存储在村民隐藏的背包中，如果一位食物充足的村民发现了一位没有食物的村民，他会把食物分享给他。</td>
+<td align="center">3个面包&#x2F;12个马铃薯&#x2F;12个甜菜&#x2F;12个胡萝卜</td>
+</tr>
+<tr>
+<td>床位</td>
+<td>村庄中的村民每人绑定一张床，如果他们有繁殖意愿，则会为子代小村名预定一张床。</td>
+<td align="center">村民能寻路到的床位数&gt;村民数；存在未占领的床</td>
+</tr>
+<tr>
+<td>意愿</td>
+<td>满足上述条件，村民各自消耗一些食物，生出小村民，并进入5分钟冷却时间，小村民自动占领预定的床位。</td>
+<td align="center">None</td>
+</tr>
+</tbody></table>
+<p>​        最实用的架构：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YJ411Q7zy/?share_source=copy_web">【超实用系列-简单全自动村民繁殖一体机-Minecraft1.14我的世界 By 黑山大叔】</a></p>
+<p>​        上层两位村民负责种植食物，晚上的时候他们尝试靠近床来睡觉。在栅栏前看到彼此，并开始分享食物。可由于栅栏高1.5格，所以食物被栅栏拦截掉入下层。食物被下层村民接受，满足上述三个条件，产生繁殖意愿，生出子代小村民。小村民寻路到了床，想要接近它，被活板门欺骗，掉入生长室生长。长大后被挤到活板门上，推到等候室。玩家可以用矿车接走村民，运到要用的地方。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1DF411w7hs/?share_source=copy_web">村民繁殖原理详细讲解</a></p>
+<h5 id="村民的打折降价交易机制开发与运用-——村民骨折机"><a href="#村民的打折降价交易机制开发与运用-——村民骨折机" class="headerlink" title="村民的打折降价交易机制开发与运用      ——村民骨折机"></a>村民的打折降价交易机制开发与运用      ——村民骨折机</h5><h5 id="村民的交易机制开发与运用-——村民交易所"><a href="#村民的交易机制开发与运用-——村民交易所" class="headerlink" title="村民的交易机制开发与运用        ——村民交易所"></a>村民的交易机制开发与运用        ——村民交易所</h5><h5 id="村民的流言-恐吓机制开发与运用-——刷铁机"><a href="#村民的流言-恐吓机制开发与运用-——刷铁机" class="headerlink" title="村民的流言&#x2F;恐吓机制开发与运用         ——刷铁机"></a>村民的流言&#x2F;恐吓机制开发与运用         ——刷铁机</h5><h6 id="流言刷铁机-不推荐"><a href="#流言刷铁机-不推荐" class="headerlink" title="流言刷铁机    不推荐"></a>流言刷铁机    <strong>不推荐</strong></h6><p>注意：流言刷铁机不需要运用到怪物，但是效率低下，只能运用在例如和平生存挑战中。</p>
+<p>｜ 这个特性被gossip发现&#x2F;运用。 </p>
+<p>​        每个村民每5秒观察一下周围16格范围内铁傀儡数量，如果数量不足，他会每1分钟向周围村民喊话，称村庄铁傀儡数量不足，想要召唤铁傀儡。如果他附近10格以内，其他村民也这么想，那么他们就可以成功召唤出一只铁傀儡。</p>
+<h6 id="恐吓刷铁机"><a href="#恐吓刷铁机" class="headerlink" title="恐吓刷铁机"></a>恐吓刷铁机</h6><p>注意：该刷铁机只能在JE中运用。</p>
+<p>｜ 这个特性被panic发现&#x2F;运用。</p>
+<p>​        如果村民发现周围有僵尸系生物，或灾厄村民等怪物，或自身收到攻击，村民受到恐吓，进入惊慌状态。这时他会每5秒向周围村民喊话称想要召唤铁傀儡。这时，只要两位村民也有相同想法，便可以召唤一只铁傀儡。</p>
+<table>
+<thead>
+<tr>
+<th>要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>20分钟内睡过觉。</td>
+</tr>
+<tr>
+<td>不是傻子村民。</td>
+</tr>
+<tr>
+<td>有一份工作。 <em>1.14～1.15</em></td>
+</tr>
+</tbody></table>
+<p>在空中摆上三张床，在一段距离（见下文 <strong>恐吓半径</strong>）外放置恐吓源，在空中建造铁傀儡刷新平台。</p>
+<p><strong>恐吓半径</strong> 不同种类恐吓源有效恐吓下恐吓源足部到村民足部直线距离。</p>
+<table>
+<thead>
+<tr>
+<th>恐吓源名称</th>
+<th>恐吓半径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>僵尸、尸壳、溺尸、恼鬼、僵尸村民</td>
+<td>8格</td>
+</tr>
+<tr>
+<td>卫道士</td>
+<td>10格</td>
+</tr>
+<tr>
+<td>唤魔者、幻术师</td>
+<td>12格</td>
+</tr>
+<tr>
+<td>掠夺者</td>
+<td>15格</td>
+</tr>
+</tbody></table>
+<p>注意：恐吓源不可以持续恐吓村民，这样村民无法睡觉。我们可以用气泡柱上下移动恐吓源，让村民与恐吓源短时间内不接触，哪怕时间再短，村民也可以完成睡觉的条件。请在10秒内将铁傀儡移出村民检测范围内，这样才能提高效率。每3位村民保持一定距离，</p>
+<h5 id="村民分支农民种植作物机制的开发与利用。-——自动农场"><a href="#村民分支农民种植作物机制的开发与利用。-——自动农场" class="headerlink" title="村民分支农民种植作物机制的开发与利用。     ——自动农场"></a>村民分支农民种植作物机制的开发与利用。     ——自动农场</h5><h4 id="1-7-2-刷怪机制-设计"><a href="#1-7-2-刷怪机制-设计" class="headerlink" title="1.7.2 刷怪机制&#x2F;设计"></a>1.7.2 刷怪机制&#x2F;设计</h4><h6 id="刷怪范围"><a href="#刷怪范围" class="headerlink" title="刷怪范围"></a>刷怪范围</h6><p>​        以玩家为中心，24格球形范围内，不会刷怪。 以玩家为中心128格范围内，为刷怪最大范围，在此范围外不会刷怪，怪物离开这个范围也会消失（除命过名的怪物，随遗迹一起生成的怪物，捡了物品的怪物，坐了载具的怪物）。在距离玩家32格到128格内的怪物，不会移动，且会随机消失。如果有了目标，它们也会移动。</p>
+<h6 id="刷怪数量上限"><a href="#刷怪数量上限" class="headerlink" title="刷怪数量上限"></a>刷怪数量上限</h6><p>​	单人游戏刷怪上限为70，多人游戏依据玩家间距离以及数量来定。</p>
+<h6 id="光亮-亮度"><a href="#光亮-亮度" class="headerlink" title="光亮&#x2F;亮度"></a>光亮&#x2F;亮度</h6><p>​	刷怪区域内不得有任何光亮，否则怪物无法刷新（某些怪物不一样）</p>
+<h6 id="高度-环境"><a href="#高度-环境" class="headerlink" title="高度&#x2F;环境"></a>高度&#x2F;环境</h6><p>​	不同怪物对刷怪空间以及环境有不同要求。例如：僵尸必须在高2格的空间才能生成，而末影人要3格。又例如：蜘蛛刷新范围3x3区域内，必须无任何方块。 </p>
+<h6 id="刷怪游走"><a href="#刷怪游走" class="headerlink" title="刷怪游走"></a>刷怪游走</h6><p>​	在选定初始点后（见LC值），刷怪坐标会在x，y水平坐标上随机偏移。每个方向最多五格，选中第一个点后，会检查该方块表面是否可以刷怪，光照等级。若满足条件，则生成一只怪物。如不能重复上述操作，最多游走4次。每个初始点上，进行3轮上述操作。如果游走时遇到完整方块，则刷怪立即终止。</p>
+<p>​	所以刷怪塔刷怪平台脚的那一层，不能有实体方块。刷怪游走最多5个，最多4次。则刷怪平台上的遮光平台向外延伸4x5&#x3D;20格，不过一般为15格，将刷怪塔内光照强度将为0即可。</p>
+<h6 id="LC值-！不确定！"><a href="#LC值-！不确定！" class="headerlink" title="LC值       ！不确定！"></a>LC值       <strong>！不确定</strong>！</h6><p>​	LC值与Y值密切相关。LC值越高，效率越低，LC值越低，相反。在每个gt内，游戏选取任意x，z值作为刷怪初始点的水平坐标。游戏接下来检查该水平坐标最高的方块，在这个方块上随机选取一个坐标作为刷怪初始点，若该坐标为实体方块，则刷怪立即终止。如果在世界最低点（y&#x3D;0）（以老版高度为例）做一个刷怪平台，其上方无任何方块，则最高方块为0，最高y值加1为y&#x3D;1。选取水平坐标后，y值会在0与1之间随机选取。则该刷怪平台刷怪成功率为1&#x2F;2，y值为1平台则为1&#x2F;3。</p>
+<h5 id="刷怪塔设计类别：被动刷怪塔"><a href="#刷怪塔设计类别：被动刷怪塔" class="headerlink" title="刷怪塔设计类别：被动刷怪塔"></a>刷怪塔设计类别：被动刷怪塔</h5><h6 id="游走刷怪塔"><a href="#游走刷怪塔" class="headerlink" title="游走刷怪塔"></a>游走刷怪塔</h6><h6 id="寻路刷怪塔"><a href="#寻路刷怪塔" class="headerlink" title="寻路刷怪塔"></a>寻路刷怪塔</h6><h5 id="刷怪塔设计类别：主动刷怪塔"><a href="#刷怪塔设计类别：主动刷怪塔" class="headerlink" title="刷怪塔设计类别：主动刷怪塔"></a>刷怪塔设计类别：主动刷怪塔</h5><h6 id="水流刷怪塔"><a href="#水流刷怪塔" class="headerlink" title="水流刷怪塔"></a>水流刷怪塔</h6><h6 id="移动地板刷怪塔"><a href="#移动地板刷怪塔" class="headerlink" title="移动地板刷怪塔"></a>移动地板刷怪塔</h6><h6 id="炸怪塔"><a href="#炸怪塔" class="headerlink" title="炸怪塔"></a>炸怪塔</h6><p>​        什么机器最高压，劲爆？肯定是TNT炸怪塔！Java版独有特性TNT跨领域应用，得益于无限的TNT以及超高的伤害，可以在短时间内击杀生成的怪物。把TNT复制机压缩在一个区块内，怪物在地面生成，TNT高频复制TNT，TNT落入水中，不破坏方块但能造成伤害，击杀生成的怪物。</p>
+<blockquote>
+<p>“TNT炸怪塔短时间内是单维度刷怪塔的主宰。”                              ——CrazyMax</p>
+<p>“TNT炸怪塔的局限只能是怪物几个gt死亡动画对刷怪数量上限的短时间占用了。”                  ——国内TIS服务器红石玩家</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15b41147h8/?share_source=copy_web">Fallen_Breath的TNT炸怪塔设计</a></p>
+<h6 id="光照更新抑制刷怪塔"><a href="#光照更新抑制刷怪塔" class="headerlink" title="光照更新抑制刷怪塔"></a>光照更新抑制刷怪塔</h6><p>​        在原版我的世界，1.14（java）以后，光照更新计算独立为一个线程。区别于1.14以前混合在游戏主线程的光照更新计算，这样无论如何计算可以与主线程同步，避免客户端的卡顿。</p>
+<p>​        我们首先需要知道什么是光照更新计算：</p>
+<p>​        众所周知，我的世界有一个特性为光照强度。当我们放置一个火把，点亮了周围漆黑的区域，这时，光照强度由0变为15级等。这会影响作物生成，怪物刷新。所以，我们可以认为，光亮的变化带来了光照更新。我们拆去火把，亮度又变为0。光照更新就是来处理这些光照强度的变化所带来的计算。随着游戏越来越庞大复杂，光照更新无时无刻都在计算着。可是受限于电脑性能，有的时候计算任务太多便会导致计算繁忙而带来卡顿。</p>
+<p>​        由于刷怪数量上限的限制，刷怪塔始终不能突破效率瓶颈。这都是因为传统刷怪塔从怪物生成到死亡耗费时间太多，一直占用着刷怪上限，游戏一直无法生成新的怪物。如何解决？如果无穷的优化无法改变如今的窘境，那么彻底的变革才是唯一的出路。让怪物直接生成在地狱门门框上，直接它们传送入地狱以解除主世界刷怪数量限制是个好主意，可难点在于，地狱门有亮度，怪物不可能在上面刷新。我们运用 <strong>光照更新抑制器</strong>，在高空推动大量方块，造成天空盒亮度对地面亮度改变时所造成的光照更新计算。大量的计算使服务器与客户端不堪重负，无法计算地狱门所造成的亮度，而欺骗服务端与客户端，使它们认为地狱门亮度为0，而在上面生成怪物。如果期间我们强行加载新的区块，会导致游戏及服务器崩溃，使地狱门亮度将永远为0。怪物在上面刷新，立即传送入地狱，解除主世界刷怪数量限制。在地狱处死怪物，也可以让怪物死亡动画不再波及刷怪速率。这种刷怪塔，可以让效率达到惊人的百万级物品，只要设备性能优秀，我们可以无限堆叠，让效率接近无限。</p>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/0ZiU_pcmoEE">比较高效的光照更新抑制刷怪塔设计</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BC4y1p7NP/?share_source=copy_web">详细原理讲解</a></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><h4 id="1-8-进阶生电"><a href="#1-8-进阶生电" class="headerlink" title="1.8 进阶生电"></a>1.8 进阶生电</h4><h5 id="1-8-1-资源获取"><a href="#1-8-1-资源获取" class="headerlink" title="1.8.1 资源获取"></a>1.8.1 资源获取</h5><h6 id="原木"><a href="#原木" class="headerlink" title="原木"></a>原木</h6><h6 id="石头"><a href="#石头" class="headerlink" title="石头"></a>石头</h6><p>​		当水源与岩浆相遇，便可以生成园石&#x2F;石头。但是玩家一般会直接生成石头，因为石头挖掘时间比园石短。</p>
+<table>
+<thead>
+<tr>
+<th>生成物品</th>
+<th>条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>园石</td>
+<td>岩浆与含水方块处于同一水平高度，中间相隔一格以生成石头。</td>
+</tr>
+<tr>
+<td>石头</td>
+<td>含水方块的高度比岩浆高一格，含水方块下留空来生成石头。</td>
+</tr>
+</tbody></table>
+<p>注意：岩浆最长流动3格！</p>
+<p>​	生电玩家通常使用全自动机械。目前全自动刷石机主要分为以下几种：</p>
+<ul>
+<li>生炸垂直式刷石机</li>
+<li>活塞推动聚合式刷石机</li>
+<li>B36方块垂直式刷石机</li>
+</ul>
+<p>生炸垂直式刷石机：TNT复制机复制TNT，TNT降落在由防爆方块或含水方块构成的防爆平台上，TNT破坏垂直生成的园石，破坏后重新生成园石，掉落的石头被漏斗收集。一直重复上述过程。可参考以下<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Et4y1G76u/?share_source=copy_web">经典设计</a>。</p>
+<p>活塞推动聚合式刷石机：多个刷石模块旋转复制，生成园石后被活塞推出，聚合至中央。使用TNT复制机复制TNT集中爆破，掉落物被漏斗收集。</p>
+<blockquote>
+<p>小知识：</p>
+<p>你知道吗？活塞推动聚合式刷石机这样的架构打破了世界纪录！ <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15f4y1X7W6/?share_source=copy_web">视频链接</a></p>
+</blockquote>
+<h6 id="金子"><a href="#金子" class="headerlink" title="金子"></a>金子</h6><h6 id="甘蔗"><a href="#甘蔗" class="headerlink" title="甘蔗"></a>甘蔗</h6><h6 id="红石"><a href="#红石" class="headerlink" title="红石"></a>红石</h6><h6 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h6><h4 id="1-9-高级生电"><a href="#1-9-高级生电" class="headerlink" title="1.9 高级生电"></a>1.9 高级生电</h4><h5 id="1-9-1-高级资源获取"><a href="#1-9-1-高级资源获取" class="headerlink" title="1.9.1 高级资源获取"></a>1.9.1 高级资源获取</h5><h6 id="绿宝石"><a href="#绿宝石" class="headerlink" title="绿宝石"></a>绿宝石</h6><h6 id="骷髅头"><a href="#骷髅头" class="headerlink" title="骷髅头"></a>骷髅头</h6><h6 id="下界之心"><a href="#下界之心" class="headerlink" title="下界之心"></a>下界之心</h6><h6 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h6><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><h3 id="下面该做什么？"><a href="#下面该做什么？" class="headerlink" title="下面该做什么？"></a>下面该做什么？</h3><p>​        或许，你可以尝试学习 红石数电&#x2F;模电 尝试制造游戏中的电脑或其他。过程将是无比的艰难，但只要坚持一定有所收获。亦或者你可以在视频网站发布自己的红石教程，用通俗易懂的语言教会更多玩家红石的玩法。你也可以学习编程语言，设计自己的我的世界启动器，插件，模组。你可以开设一台我的世界服务器，可以是原版生存&#x2F;创造服，可以是小游戏综合服，可以是mod模组服……可以设计一台有趣的红石机器，可以开设一个红石交流论坛，可以创新更多玩法技术。没有什么做不到，没有什么做不成，因为，这是我的世界。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="生存生电科技树"><a href="#生存生电科技树" class="headerlink" title="生存生电科技树"></a>生存生电科技树</h3><h3 id="致谢-引用"><a href="#致谢-引用" class="headerlink" title="致谢&#x2F;引用"></a>致谢&#x2F;引用</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://space.bilibili.com/392055878?spm_id_from=333.337.0.0">TIS Trinity Union</a> [合集：从活塞到游戏机制 ]</li>
+<li><a target="_blank" rel="noopener" href="https://space.bilibili.com/501074372?spm_id_from=333.337.0.0">DQ大冲同学</a> [我的世界红石教科书] <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1mbpaNW0AUagH-5uEK4l3Gw">下载链接 密码：1145</a></li>
+<li>Minecraft Wiki 广大编辑者</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Auroraの博客小窝
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Aurora
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
