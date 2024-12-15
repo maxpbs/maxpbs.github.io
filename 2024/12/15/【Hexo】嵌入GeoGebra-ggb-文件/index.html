@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: 学习 | Auroraの博客小窝</title>
+    <title>【Hexo】嵌入GeoGebra(.ggb)文件 | Auroraの博客小窝</title>
     <meta name="author" content="Aurora" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -42,6 +42,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -188,131 +192,76 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%B8%B8%E6%88%8F-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                游戏, 我的世界
-            </a>
+            <div class="article">
+    <div>
+        <h1>【Hexo】嵌入GeoGebra(.ggb)文件</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/15
         </span>
         
         
-        
-        <span>
-            <a href="/tags/NOI/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                NOI
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Hexo/" style="color: #00bcd4">
+                    Hexo
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/Hexo/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                Hexo
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                构建&amp;开发
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%97%85%E8%A1%8C/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                旅行
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                学习
-            </a>
-        </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E8%B5%84%E6%BA%90/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                资源
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                我的世界
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/7/26</div>
-            <a href="/2024/07/26/%E7%89%A9%E7%90%86/">
-                <h3>【物理】苏科版·八年级上</h3>
-            </a>
-            <div class="info">
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="color: #ffa2c4">
-                            学习
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <script src \【hexo】嵌入geogebra-ggb-文件\一次函数实例.ggb""></script>  //路径指向自己建立的js文件
+
+<script>
+
+// 建立自己的 ggb 参数
+var parameters = {
+"id": "ggbApplet",
+"width":800,
+"height":500,
+"enableShiftDragZoom":true,
+"showZoomButtons":true,
+"appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },
+"showFullscreenButton":true,
+"language":"en",
+ "filename":"https://101.43.39.125/HexoFiles/image_canglan/20210417165539.ggb",
+};
+
+// views 参数
+var views = {'is3D': 0,'AV': 1,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+
+// GGBApplet 对象
+var applet = new GGBApplet(parameters, '5.0', views);
+
+// 展示 geogebra 图像
+window.onload = function()
+{applet.inject('ggbApplet');};
+
+</script>
+
+<p>&#x2F;&#x2F;展示对象</p>
+<div id="ggbApplet"></div>
+
     </div>
+    
+    
+    
+    
+    
+    
     
 </div>
 
@@ -344,6 +293,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>

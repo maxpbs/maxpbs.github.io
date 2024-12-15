@@ -6,7 +6,7 @@
   <link href="https://maxpbs.github.io/atom.xml" rel="self"/>
   
   <link href="https://maxpbs.github.io/"/>
-  <updated>2024-08-21T05:05:41.856Z</updated>
+  <updated>2024-12-15T00:17:18.340Z</updated>
   <id>https://maxpbs.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【Hexo】嵌入GeoGebra(.ggb)文件</title>
+    <link href="https://maxpbs.github.io/2024/12/15/%E3%80%90Hexo%E3%80%91%E5%B5%8C%E5%85%A5GeoGebra-ggb-%E6%96%87%E4%BB%B6/"/>
+    <id>https://maxpbs.github.io/2024/12/15/%E3%80%90Hexo%E3%80%91%E5%B5%8C%E5%85%A5GeoGebra-ggb-%E6%96%87%E4%BB%B6/</id>
+    <published>2024-12-15T00:11:10.000Z</published>
+    <updated>2024-12-15T00:17:18.340Z</updated>
+    
+    <content type="html"><![CDATA[<script src \【hexo】嵌入geogebra-ggb-文件\一次函数实例.ggb""></script>  //路径指向自己建立的js文件<script>// 建立自己的 ggb 参数var parameters = {"id": "ggbApplet","width":800,"height":500,"enableShiftDragZoom":true,"showZoomButtons":true,"appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },"showFullscreenButton":true,"language":"en", "filename":"https://101.43.39.125/HexoFiles/image_canglan/20210417165539.ggb",};// views 参数var views = {'is3D': 0,'AV': 1,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};// GGBApplet 对象var applet = new GGBApplet(parameters, '5.0', views);// 展示 geogebra 图像window.onload = function(){applet.inject('ggbApplet');};</script><p>&#x2F;&#x2F;展示对象</p><div id="ggbApplet"></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;script src &#92;【hexo】嵌入geogebra-ggb-文件&#92;一次函数实例.ggb&quot;&quot;&gt;&lt;/script&gt;  //路径指向自己建立的js文件
+
+&lt;script&gt;
+
+// 建立自己的 ggb 参数
+var parameters = {
+&quot;id&quot;: &quot;ggbApplet&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="Hexo" scheme="https://maxpbs.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>NOI基础知识题库</title>

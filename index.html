@@ -219,6 +219,76 @@
         
 
 <div class="post">
+    <a href="/2024/12/15/%E3%80%90Hexo%E3%80%91%E5%B5%8C%E5%85%A5GeoGebra-ggb-%E6%96%87%E4%BB%B6/">
+        <h2 class="post-title">【Hexo】嵌入GeoGebra(.ggb)文件</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/12/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <script src \【hexo】嵌入geogebra-ggb-文件\一次函数实例.ggb""></script>  //路径指向自己建立的js文件
+
+<script>
+
+// 建立自己的 ggb 参数
+var parameters = {
+"id": "ggbApplet",
+"width":800,
+"height":500,
+"enableShiftDragZoom":true,
+"showZoomButtons":true,
+"appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },
+"showFullscreenButton":true,
+"language":"en",
+ "filename":"https://101.43.39.125/HexoFiles/image_canglan/20210417165539.ggb",
+};
+
+// views 参数
+var views = {'is3D': 0,'AV': 1,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+
+// GGBApplet 对象
+var applet = new GGBApplet(parameters, '5.0', views);
+
+// 展示 geogebra 图像
+window.onload = function()
+{applet.inject('ggbApplet');};
+
+</script>
+
+<p>&#x2F;&#x2F;展示对象</p>
+<div id="ggbApplet"></div>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Hexo/" style="color: #ffa2c4">Hexo</a>
+        </span>
+        
+    </div>
+    <a href="/2024/12/15/%E3%80%90Hexo%E3%80%91%E5%B5%8C%E5%85%A5GeoGebra-ggb-%E6%96%87%E4%BB%B6/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
     <a href="/2024/08/21/NOI%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E9%A2%98%E5%BA%93/">
         <h2 class="post-title">NOI基础知识题库</h2>
     </a>
@@ -980,7 +1050,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E8%B5%84%E6%BA%90/" style="color: #00a596">资源</a>
+            <a href="/tags/%E8%B5%84%E6%BA%90/" style="color: #ffa2c4">资源</a>
         </span>
         
     </div>
@@ -1253,7 +1323,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="color: #00bcd4">学习</a>
+            <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="color: #03a9f4">学习</a>
         </span>
         
     </div>
@@ -1350,7 +1420,7 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" style="color: #00bcd4">我的世界</a>
+            <a href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" style="color: #03a9f4">我的世界</a>
         </span>
         
     </div>
@@ -1470,7 +1540,7 @@ git config --global user.email &quot;你的邮箱&quot;
         
         <span class="tag">
             
-            <a href="/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/" style="color: #03a9f4">构建&amp;开发</a>
+            <a href="/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/" style="color: #ffa2c4">构建&amp;开发</a>
         </span>
         
     </div>
@@ -1541,7 +1611,7 @@ git config --global user.email &quot;你的邮箱&quot;
         
         <span class="tag">
             
-            <a href="/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/" style="color: #00bcd4">构建&amp;开发</a>
+            <a href="/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/" style="color: #00a596">构建&amp;开发</a>
         </span>
         
     </div>
@@ -1671,7 +1741,7 @@ INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.
         
         <span class="tag">
             
-            <a href="/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/" style="color: #03a9f4">构建&amp;开发</a>
+            <a href="/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/" style="color: #ff7d73">构建&amp;开发</a>
         </span>
         
     </div>
@@ -1698,7 +1768,7 @@ INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.
         </div>
         <div class="name">Aurora</div>
         <div class="description">
-            <p>一个会一点编程的初中生。<br>QQ：2550103364<br>邮箱：<a href="mailto:&#x6d;&#x61;&#x78;&#x79;&#x69;&#110;&#99;&#x68;&#101;&#x6e;&#99;&#x68;&#x61;&#110;&#x67;&#x40;&#111;&#x75;&#116;&#108;&#x6f;&#111;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;">&#x6d;&#x61;&#x78;&#x79;&#x69;&#110;&#99;&#x68;&#101;&#x6e;&#99;&#x68;&#x61;&#110;&#x67;&#x40;&#111;&#x75;&#116;&#108;&#x6f;&#111;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;</a><br>…</p>
+            <p>一个会一点编程的初中生。<br>QQ：2550103364<br>邮箱：<a href="mailto:&#x6d;&#x61;&#x78;&#x79;&#x69;&#x6e;&#x63;&#104;&#101;&#110;&#99;&#104;&#x61;&#110;&#103;&#64;&#x6f;&#x75;&#116;&#x6c;&#111;&#111;&#107;&#x2e;&#x63;&#111;&#109;">&#x6d;&#x61;&#x78;&#x79;&#x69;&#x6e;&#x63;&#104;&#101;&#110;&#99;&#104;&#x61;&#110;&#103;&#64;&#x6f;&#x75;&#116;&#x6c;&#111;&#111;&#107;&#x2e;&#x63;&#111;&#109;</a><br>…</p>
 
         </div>
         
