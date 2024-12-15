@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://maxpbs.github.io/tags/index.html</loc>
+    
+    <lastmod>2024-12-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://maxpbs.github.io/categories/index.html</loc>
+    
+    <lastmod>2024-12-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://maxpbs.github.io/essay/index.html</loc>
     
     <lastmod>2024-12-15</lastmod>
@@ -111,24 +129,6 @@
   
   <url>
     <loc>https://maxpbs.github.io/2024/07/07/%E3%80%90%E6%97%85%E8%A1%8CBlog%E3%80%91%E5%8E%BB%E5%8C%97%E4%BA%AC/</loc>
-    
-    <lastmod>2024-07-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://maxpbs.github.io/tags/index.html</loc>
-    
-    <lastmod>2024-07-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://maxpbs.github.io/categories/index.html</loc>
     
     <lastmod>2024-07-09</lastmod>
     
