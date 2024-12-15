@@ -1,10 +1,11 @@
+https://maxpbs.github.io/essay/index.html
+https://maxpbs.github.io/2024/06/16/%E6%80%8E%E6%A0%B7%E5%88%B6%E4%BD%9C%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%9F/
 https://maxpbs.github.io/2024/08/21/NOI%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E9%A2%98%E5%BA%93/
 https://maxpbs.github.io/2024/07/26/%E7%89%A9%E7%90%86/
 https://maxpbs.github.io/todo/index.html
 https://maxpbs.github.io/about/index.html
 https://maxpbs.github.io/2024/07/28/Minecraft%20%E7%9A%84%E6%97%A0%E9%99%90%E5%8F%AF%E8%83%BD%E2%80%94%E2%80%94%E7%BA%A2%E7%9F%B3%EF%BC%9A%E5%9F%BA%E7%A1%80%E4%B8%8E%E7%94%9F%E7%94%B5/
 https://maxpbs.github.io/mcserver/index.html
-https://maxpbs.github.io/2024/06/16/%E6%80%8E%E6%A0%B7%E5%88%B6%E4%BD%9C%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%9F/
 https://maxpbs.github.io/link/index.html
 https://maxpbs.github.io/archives/index.html
 https://maxpbs.github.io/2024/07/27/%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E9%AB%98%E6%B8%85%E6%97%A0%E6%B0%B4%E5%8D%B0%E7%9A%84%E6%95%99%E6%9D%90PDF%E6%96%87%E4%BB%B6%EF%BC%9F/
@@ -15,10 +16,10 @@ https://maxpbs.github.io/categories/index.html
 https://maxpbs.github.io/2024/07/07/Building-Guide%E6%9E%84%E5%BB%BA%E6%8C%87%E5%8D%97/
 https://maxpbs.github.io/2024/07/06/%E3%80%90%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91Markdown%E8%BD%BB%E6%9D%BE%E5%AD%A6%20%E5%BA%8F%EF%BC%81/
 https://maxpbs.github.io/
-https://maxpbs.github.io/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/
+https://maxpbs.github.io/tags/NOI/
 https://maxpbs.github.io/tags/%E6%B8%B8%E6%88%8F-%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/
 https://maxpbs.github.io/tags/%E6%97%85%E8%A1%8C/
-https://maxpbs.github.io/tags/NOI/
+https://maxpbs.github.io/tags/%E6%9E%84%E5%BB%BA-%E5%BC%80%E5%8F%91/
 https://maxpbs.github.io/tags/%E8%B5%84%E6%BA%90/
 https://maxpbs.github.io/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/
 https://maxpbs.github.io/tags/%E5%AD%A6%E4%B9%A0/
